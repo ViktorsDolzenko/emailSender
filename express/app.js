@@ -2,6 +2,7 @@ const sgMail = require('@sendgrid/mail');
 const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser");
+const serverless = require('serverless-http');
 sgMail.setApiKey(process.env.SGKEY);
 
 const app = express();
@@ -33,10 +34,11 @@ router.post('/', (req, res) => {
       })
 })
 
-app.use("/", router);
+app.use("/.netlify/functions", router);
 
 app.listen(PORT, () => {
   console.log(`=== start server PORT ${PORT} ===`);
 });
 
+module.exports.handler = serverless(app)
 
