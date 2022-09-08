@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
 
+
 router.post('/', (req, res) => {
   res.status(201);
   const name = req.body.name;
@@ -34,11 +35,12 @@ router.post('/', (req, res) => {
       })
 })
 
-app.use("/.netlify/functions", router);
+app.use("/.netlify/functions/app", router);
 
 app.listen(PORT, () => {
   console.log(`=== start server PORT ${PORT} ===`);
 });
 
+module.exports = app;
 module.exports.handler = serverless(app)
 
