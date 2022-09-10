@@ -13,6 +13,13 @@ const PORT = process.env.PORT || 3000;
 
 
 router.post('/', (req, res) => {
+    res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+    res.header("Access-Control-Allow-Credentials", true);
   res.status(201);
   const name = req.body.name;
   const tel = req.body.tel;
