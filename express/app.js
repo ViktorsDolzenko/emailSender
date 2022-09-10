@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
   const name = req.body.name;
   const tel = req.body.tel;
   const msg = {
-    to: 'vitja1234@gmail.com',
-    from: 'vitja1234@gmail.com',
+    to: 'infoautobravo@gmail.com',
+    from: 'infoautobravo@gmail.com',
     subject: 'Заявка на обучение',
     text: name + ' ' + tel,
     html: `<strong>Имя: ${name}, Телефон ${tel} </strong>`,
