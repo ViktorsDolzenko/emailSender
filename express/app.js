@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser");
 const serverless = require('serverless-http');
+const cors = require('cors');
 sgMail.setApiKey(process.env.SGKEY);
 
 const app = express();
@@ -41,6 +42,8 @@ router.post('/', (req, res) => {
         console.error(error)
       })
 })
+
+app.use(cors())
 
 app.use("/.netlify/functions/app", router);
 
