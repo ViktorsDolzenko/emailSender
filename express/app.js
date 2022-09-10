@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 
 router.post('/', (req, res) => {
-    res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+    res.header("Access-Control-Allow-Origin", '*');
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
